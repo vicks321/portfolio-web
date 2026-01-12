@@ -1,0 +1,9 @@
+:root {
+  --page-padding: 20px;
+}
+
+body {
+  margin: var(--page-padding);
+  background-color: black;
+  color: white;
+}
