@@ -8,7 +8,8 @@
 }
 
 body {
-  margin: var(--page-padding);
+  margin: 20px;
+  padding: 20px;
   background-color: black;
   color: white;
   font-family: "Poppins", sans-serif;
