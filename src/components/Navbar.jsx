@@ -16,16 +16,16 @@ const Navbar = () => {
       <div className="hidden text-3xl md:flex gap-15 items-center text-white ">
         
         
-        <a href="/about" className="hover:cursor">About</a>
-        <a href="/projects" className="hover:cursor">Projects</a>
-        <a href="https://vicks.hashnode.dev" className="hover:cursor">Blog</a>
+        <a href="/about" className="hover:opacity-100">About</a>
+        <a href="/projects" className="hover:opacity-100">Projects</a>
+        <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
       </div>
 
       {/* Desktop Icons */}
       <div className="hidden md:flex gap-4 items-center">
-        <a href="https://github.com/vicks321" className="text-2xl text-white"><FaGithubSquare /></a>
-        <a href="https://www.linkedin.com/in/vicky-sah-707954350" className="text-4xl text-white"><FaLinkedin /></a>
-        <a href="https://www.instagram.com/_vicks_321" className="text-2xl text-white"><GrInstagram /></a>
+        <a href="https://github.com/vicks321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><FaGithubSquare /></a>
+        <a href="https://www.linkedin.com/in/vicky-sah-707954350" target="_blank" className=" hover:opacity-100 text-4xl text-white"><FaLinkedin /></a>
+        <a href="https://www.instagram.com/_vicks_321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><GrInstagram /></a>
       </div>
 
       {/* Mobile Menu Button */}
