@@ -7,4 +7,9 @@ export default defineConfig({
   plugins: [
      tailwindcss(),
      react()],
+     base: '/',        // ← THIS LINE IS CRITICAL
+  build: {
+    sourcemap: false, // optional – faster build
+  },
 })
+
