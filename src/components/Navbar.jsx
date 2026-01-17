@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className=" border-b md:w-[50%] mx-auto rounded-4xl px-6 py-4 flex justify-between items-center">
+    <nav className=" border-b md:w-[40%] mx-auto rounded-4xl px-6 py-4 flex justify-between items-center">
       {/* Logo / Title */}
       <div className=" text-2xl font-bold text-white hover:cursor">
        <a href="/">Vicky</a>
@@ -16,6 +16,7 @@ const Navbar = () => {
       <div className="hidden text-3xl md:flex gap-15 items-center text-white ">
         
         
+        <a href="/home" className="hover:opacity-100">Home</a>
         <a href="/about" className="hover:opacity-100">About</a>
         <a href="/projects" className="hover:opacity-100">Projects</a>
         <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
