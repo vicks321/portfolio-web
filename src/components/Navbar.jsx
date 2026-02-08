@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaLinkedin, FaGithubSquare, FaBars, FaTimes } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,9 +16,10 @@ const Navbar = () => {
       <div className="hidden text-shadow-initial md:flex gap-10 items-center text-white ">
         
         
-        <a href="/" className="hover:opacity-100">Home</a>
-        <a href="/about" className="hover:opacity-100">About</a>
-        <a href="/projects" className="hover:opacity-100">Projects</a>
+        <Link to="/">Home</Link>
+        <Link to="/about" className="hover:opacity-100">About</Link>
+        
+        <Link to="/projects" className="hover:opacity-100">Projects</Link>
         <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
       </div>
 
@@ -40,14 +41,14 @@ const Navbar = () => {
           
           
           
-          <a href="/" className="text-white text-lg">Home</a>
-          <a href="/about" className="text-white text-lg">About</a>
-          <a href="/projects" className="text-white text-lg">Projects</a>
-          <a href="https://vicks.hashnode.dev" className="text-white text-lg">Blog</a>
+        <Link to="/">Home</Link>
+        <Link to="/about" className="hover:opacity-100">About</Link>
+        <Link to="/projects" className="hover:opacity-100">Projects</Link>
+           <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
           <div className="flex gap-4 text-2xl">
-            <a href="https://github.com/vicks321" className="text-white"><FaGithubSquare /></a>
-            <a href="https://www.linkedin.com/in/vicky-sah-707954350" className="text-white text-3xl"><FaLinkedin /></a>
-            <a href="https://www.instagram.com/_vicks_321" className="text-white"><GrInstagram /></a>
+            <a href="https://github.com/vicks321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><FaGithubSquare /></a>
+        <a href="https://www.linkedin.com/in/vicky-sah-707954350" target="_blank" className=" hover:opacity-100 text-4xl text-white"><FaLinkedin /></a>
+        <a href="https://www.instagram.com/_vicks_321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><GrInstagram /></a>
           </div>
         </div>
       )}
