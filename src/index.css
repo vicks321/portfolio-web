@@ -2,8 +2,8 @@
 
 @import "tailwindcss";
  @plugin "daisyui" {
-   themes:  dark --prefersdark;
- }
+  themes: dark --default, light; /* dark will be active by default */
+}
 
 
 body {
