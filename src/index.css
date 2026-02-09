@@ -5,6 +5,10 @@
   themes: dark --default, light; /* dark will be active by default */
 }
 
+:root {
+  color-scheme: dark;
+}
+
 
 body {
   margin: 20px;
