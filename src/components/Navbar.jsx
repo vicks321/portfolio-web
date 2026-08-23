@@ -1,58 +1,166 @@
 import React, { useState } from "react";
-import { FaLinkedin, FaGithubSquare, FaBars, FaTimes } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const linkClass = ({ isActive }) =>
+    `text-sm font-medium transition-colors hover:text-amber-500 ${
+      isActive ? "text-amber-500 font-semibold" : "text-neutral-300"
+    }`;
+
+  const mobileLinkClass = ({ isActive }) =>
+    `text-base font-medium transition-colors hover:text-amber-500 ${
+      isActive ? "text-amber-500 font-semibold" : "text-neutral-300"
+    }`;
+
   return (
-    <nav className=" border-b md:w-[40%] mx-auto rounded-4xl px-6 py-4 flex justify-between items-center">
-      
-      <div className=" text-base font-bold text-white hover:cursor">
-       <a href="/">Vicky</a>
-        </div>
-
-    
-      <div className="hidden text-shadow-initial md:flex gap-10 items-center text-white ">
+    <header className="sticky top-4 z-50 px-4">
+      <nav className="max-w-4xl mx-auto backdrop-blur-md bg-neutral-950/85 border border-neutral-800 rounded-2xl md:rounded-full px-6 py-3 shadow-lg transition-all duration-300">
         
-        
-        <Link to="/">Home</Link>
-        <Link to="/about" className="hover:opacity-100">About</Link>
-        
-        <Link to="/projects" className="hover:opacity-100">Projects</Link>
-        <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
-      </div>
+        {/* Top / Main Bar */}
+        <div className="flex justify-between items-center">
+          {/* Brand Logo */}
+          <Link
+            to="/"
+            className="text-lg font-bold font-mono text-white tracking-tight hover:text-amber-500 transition-colors"
+          >
+            vicky<span className="text-amber-500">.dev</span>
+          </Link>
 
-     
-      <div className="hidden md:flex gap-4 items-center">
-        <a href="https://github.com/vicks321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><FaGithubSquare /></a>
-        <a href="https://www.linkedin.com/in/vicky-sah-707954350" target="_blank" className=" hover:opacity-100 text-4xl text-white"><FaLinkedin /></a>
-        <a href="https://www.instagram.com/_vicks_321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><GrInstagram /></a>
-      </div>
-
-    
-      <div className="text-white text-2xl md:hidden w-8 h-8 flex items-center justify-center" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
-
-      
-      {isOpen && (
-        <div className=" top-20 left-0 w-full flex flex-col items-center gap-4 py-4">
-          
-          
-          
-        <Link to="/">Home</Link>
-        <Link to="/about" className="hover:opacity-100">About</Link>
-        <Link to="/projects" className="hover:opacity-100">Projects</Link>
-           <a href="https://vicks.hashnode.dev" target="_blank" className="hover:opacity-100">Blog</a>
-          <div className="flex gap-4 text-2xl">
-            <a href="https://github.com/vicks321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><FaGithubSquare /></a>
-        <a href="https://www.linkedin.com/in/vicky-sah-707954350" target="_blank" className=" hover:opacity-100 text-4xl text-white"><FaLinkedin /></a>
-        <a href="https://www.instagram.com/_vicks_321" target="_blank" className=" hover:opacity-100 text-2xl text-white"><GrInstagram /></a>
+          {/* Desktop Nav Items */}
+          <div className="hidden md:flex items-center gap-8">
+            <NavLink to="/" className={linkClass}>
+              Home
+            </NavLink>
+            <NavLink to="/about" className={linkClass}>
+              About
+            </NavLink>
+            <NavLink to="/projects" className={linkClass}>
+              Projects
+            </NavLink>
+            <a
+              href="https://vicks.hashnode.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-medium text-neutral-300 hover:text-amber-500 transition-colors"
+            >
+              Blog ↗
+            </a>
           </div>
+
+          {/* Desktop Social Icons */}
+          <div className="hidden md:flex items-center gap-4 text-neutral-400">
+            <a
+              href="https://github.com/vicks321"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="hover:text-white hover:scale-110 text-xl transition-all"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/vicky-sah-707954350"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-[#0A66C2] hover:scale-110 text-xl transition-all"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://www.instagram.com/_vicks_321"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hover:text-[#E4405F] hover:scale-110 text-lg transition-all"
+            >
+              <GrInstagram />
+            </a>
+          </div>
+
+          {/* Mobile Hamburger Toggle Button */}
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            className="text-neutral-300 hover:text-white text-xl md:hidden p-1 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile Dropdown Menu */}
+        {isOpen && (
+          <div className="md:hidden flex flex-col items-center gap-4 pt-5 pb-3 mt-3 border-t border-neutral-800">
+            <NavLink
+              to="/"
+              className={mobileLinkClass}
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={mobileLinkClass}
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/projects"
+              className={mobileLinkClass}
+              onClick={() => setIsOpen(false)}
+            >
+              Projects
+            </NavLink>
+            <a
+              href="https://vicks.hashnode.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="text-base font-medium text-neutral-300 hover:text-amber-500 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog ↗
+            </a>
+
+            {/* Mobile Socials */}
+            <div className="flex gap-5 text-xl pt-3 border-t border-neutral-800/80 w-full justify-center text-neutral-400">
+              <a
+                href="https://github.com/vicks321"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="hover:text-white transition-colors"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/vicky-sah-707954350"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-[#0A66C2] transition-colors"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://www.instagram.com/_vicks_321"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="hover:text-[#E4405F] transition-colors"
+              >
+                <GrInstagram />
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 
