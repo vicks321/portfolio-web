@@ -7,7 +7,7 @@ export default function Home() {
       <div className="hero-copy">
         <p className="availability"><span aria-hidden="true" /> Open to full-stack internships</p>
         <p className="eyebrow hero-name">VICKY KUMAR SAH · KATHMANDU, NEPAL</p>
-        <h1>Hi, I’m Vicky.<br /><em>I’m a web developer.</em></h1>
+        <h1>Hi, I’m Vicky.<br /><em>I’m a full-stack engineer.</em></h1>
         <p className="hero-description">Computer Engineering student with a full-stack foundation in React, Node.js, Express, NestJS, and MongoDB. Ready to turn that knowledge into useful software with a team.</p>
         <div className="actions"><a className="button primary" href="https://www.linkedin.com/in/vicky-sah-707954350">Let’s connect ↗</a><Link className="button secondary" to="/projects">Explore my work <span aria-hidden="true">↓</span></Link></div>
         <div className="hero-links"><a href="https://github.com/vicks321" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/vicky-sah-707954350" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
