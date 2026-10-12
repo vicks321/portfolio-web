@@ -1,69 +1,18 @@
-import React from 'react'
-
-const About = () => {
-  const skillCategories = [
-    {
-      category: "Languages",
-      skills: ["JavaScript (ES6+)", "C / C++", "Python", "HTML5 & CSS3/Tailwind", "SQL"]
-    },
-    {
-      category: "Frameworks & Libraries",
-      skills: ["React.js", "Node.js", "Express", "Vite"]
-    },
-    {
-      category: "Developer Tools & Platforms",
-      skills: ["Git & GitHub", "Linux CLI", "DNS & Web Infrastructure", "Postman / REST APIs"]
-    },
-    {
-      category: "Computer Engineering Core",
-      skills: ["Data Structures & Algorithms", "Computer Architecture", "Operating Systems Fundamentals", "Object-Oriented Design"]
-    }
-  ]
-
-  return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
-        About Me
-      </h1>
-
-      <div className="mt-6 space-y-4 text-neutral-600 dark:text-neutral-400 text-base sm:text-lg leading-relaxed">
-        <p>
-          I am a <strong className="text-neutral-900 dark:text-white">Computer Engineering student</strong> passionate about software development, systems thinking, and building modern, reliable web applications.
-        </p>
-        <p>
-          My approach combines strong low-level computing fundamentals with hands-on full-stack development. I enjoy taking ideas from fundamental algorithmic logic all the way to polished, production-ready user interfaces.
-        </p>
-      </div>
-
-      {/* Technical Skill Grid */}
-      <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mt-12 mb-6">
-        Technical Competencies
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {skillCategories.map((group) => (
-          <div
-            key={group.category}
-            className="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/40"
-          >
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-500 mb-3">
-              {group.category}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2.5 py-1 text-xs rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono border border-neutral-200/60 dark:border-neutral-700/60"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
+import Contact from '../components/Contact'
+const groups = [
+  ['Frontend', ['JavaScript', 'React', 'HTML & CSS', 'Tailwind CSS', 'Vite']],
+  ['Backend & data', ['Node.js', 'Express', 'NestJS', 'MongoDB', 'REST APIs']],
+  ['Programming foundations', ['C / C++', 'Python', 'Data structures', 'Object-oriented programming']],
+  ['Tools & learning', ['Git & GitHub', 'Linux CLI', 'AWS cloud fundamentals']]
+]
+export default function About() {
+  return <div className="container">
+    <section className="page-intro"><p className="eyebrow">ABOUT / VICKY KUMAR SAH</p><h1>A little about me.</h1><p className="lead">I’m Vicky Kumar Sah, a Computer Engineering student at Lalitpur Engineering College, affiliated with Tribhuvan University, based in Kathmandu, Nepal.</p></section>
+    <section className="about-layout section">
+      <div><h2>What I’m working toward</h2><p>I’m interested in how the pieces of a web application fit together: the interface, the API, the database, and the infrastructure behind it.</p><p>I’ve been learning full-stack development with React and the Node.js ecosystem, alongside AWS Cloud Practitioner concepts. My next step is applying that foundation through practical work and team experience.</p><p>I’m seeking full-stack internships and entry-level opportunities where I can contribute, ask good questions, and improve through feedback.</p></div>
+      <aside className="education-card"><p className="eyebrow">EDUCATION</p><h3>Computer Engineering</h3><p>Lalitpur Engineering College<br />Tribhuvan University</p><span className="tags"><span>Currently studying</span></span><hr /><p className="eyebrow">CURRENT DIRECTION</p><p>Full-stack development<br />Cloud fundamentals</p></aside>
+    </section>
+    <section className="section"><div className="section-heading"><div><p className="eyebrow">MY TECHNICAL FOUNDATION</p><h2>Tools I’m familiar with.</h2></div></div><div className="skills-grid">{groups.map(([title, skills]) => <article key={title}><h3>{title}</h3><div className="tags">{skills.map(skill => <span key={skill}>{skill}</span>)}</div></article>)}</div><p className="section-note">AWS learning reflects foundational study, not a certification or production cloud experience.</p></section>
+    <Contact />
+  </div>
 }
-
-export default About
